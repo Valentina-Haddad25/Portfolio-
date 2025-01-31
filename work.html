@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work</title>
+
+  <!-- Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      margin: 0 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #00ffff;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+    }
+
+    .navbar a:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
+    }
+
+
+    /* Back Arrow Button */
+    .back-button {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 3rem; /* Make it larger */
+      color: white;
+      text-decoration: none;
+      z-index: 1100; /* Ensure it is always on top */
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #00bfff; /* Hover color */
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .selected-text {
+      font-size: 8rem;
+      font-weight: 400;
+      color: grey;
+      margin: 0;
+      animation: floatUp 1.5s ease-out forwards;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+    }
+
+    .work-text {
+      font-size: 8rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0;
+      animation:glitch 1.5s infinite;
+      animation-delay: 0.5s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+      position: relative;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      20% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+      40% {
+        text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
+      }
+      60% {
+        text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
+      }
+      80% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      100% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Work Experience Section */
+    .work-experiences {
+      padding: 50px;
+    }
+
+    .work-item {
+      margin-bottom: 50px;
+      animation: fadeIn 1.5s ease-out;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .work-item:nth-child(1) { animation-delay: 0.9s; }
+    .work-item:nth-child(2) { animation-delay: 0.9s; }
+    .work-item:nth-child(3) { animation-delay: 0.9s; }
+    .work-item:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .horizontal-line {
+      height: 1px;
+      background: grey;
+      opacity: 0.5;
+      margin: 40px 0;
+    }
+
+    .company {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #00ffff;
+    }
+
+    .role,
+    .year {
+      font-size: 1rem;
+      color: #9B9BA0;
+      margin-top: 5px;
+    }
+
+    .description {
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+    .down-arrow {
+      font-size: 4rem; /* Increased font size */
+      color: #ffffff;
+      position: absolute;
+      bottom: 60px; /* Adjust positioning */
+      left: 49%;
+      animation: glitch 1.5s infinite;
+    }
+
+    @media (max-width: 768px) {
+
+      .navbar {
+        flex-wrap: nowrap;;
+        justify-content: center;
+      }
+
+      .navbar li {
+        margin: 0 10px;
+        white-space: nowrap;
+      }
+      .navbar a {
+        font-size: 1rem;
+      }
+      .selected-text, .work-text {
+        font-size: 4rem;
+      }
+      .back-button {
+        display: none;
+      }
+      .down-arrow{
+        bottom: 80px;
+      }
+    }
+    @media (max-width: 480px) {
+      .selected-text, .work-text {
+        font-size: 3rem;
+      }
+      .hero {
+        padding: 10px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="index.html" class="back-button">&larr;</a>
+
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html">Certificates</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="selected-text">Selected</h1>
+    <h1 class="work-text">Work</h1>
+    <div class="down-arrow">⬇</div>
+  </section>
+
+  <!-- Work Experiences -->
+  <section class="work-experiences">
+    <!-- United States Department of the Treasury -->
+    <div class="work-item">
+      <div class="company">United States Department of the Treasury</div>
+      <div class="role">Cybersecurity and Communication Intern (Treasury Scholar)</div>
+      <div class="year">June 2024 - Present</div>
+      <p class="description">
+        As a <b>Cybersecurity and Communication Intern</b> with the Office of Critical Coinvestment Programs (OCCIP), I contribute to safeguarding financial infrastructure through AI-driven cybersecurity initiatives. I edit and proofread <b>technical cybersecurity reports</b>, ensuring compliance with federal security standards. Additionally, I <b>developed an AI-powered slide deck</b> for federal agents, providing insights into AI and Generative AI applications in cybersecurity threat detection and mitigation.
+
+        Collaborating with cross-functional teams, I help integrate <b>AI-driven cybersecurity solutions</b> into operational workflows, enhancing threat detection and reducing response time. I also <b>designed and implemented two Power Automate flows</b>, one of which significantly <b>reduced offboarding processing time</b> by streamlining secure data handling across HR and IT departments, while the other <b>simplified travel request approvals</b>, improving efficiency across administrative workflows.
+
+        Beyond automation, I conducted in-depth research on <b>cybersecurity policies across 12 countries</b>, compiling a comprehensive report that informs strategic decision-making within OCCIP. I also <b>authored three targeted talking point speeches</b> used in high-level discussions, ensuring clarity and effectiveness in addressing cybersecurity challenges. Furthermore, I assist in <b>developing and executing cybersecurity protocols and AI-based risk assessments</b>, working directly under the Chief Information Officer (CIO) to enhance security frameworks protecting critical financial institutions.
+      </p>
+    </div>
+    <div class="horizontal-line"></div>
+
+
+    <!-- Library of Congress -->
+    <div class="work-item">
+      <div class="company">Library of Congress</div>
+      <div class="role">Artificial Intelligence Community Analyst</div>
+      <div class="year">January 2024 - May 2024</div>
+      <p class="description">
+        As an <b>Artificial Intelligence Community Analyst</b>, I played a pivotal role in advancing AI-driven innovations and fostering digital outreach at the Library of Congress. I spearheaded the creation of the institution’s first <b>AI Community of Practice</b>, providing a structured forum for collaboration, ethical discussions, and knowledge sharing among Library members. To support this initiative, I <b>designed and led the first 10 training sessions and meetings</b>, developing <b>AI training decks tailored to all knowledge levels</b>, ensuring accessibility for both technical and non-technical participants.
+
+        My work also focused on practical AI applications, including the development of <b>three Figma prototypes</b> demonstrating how an AI-powered translation system could <b>seamlessly convert Arabic documents into English</b> on the Library of Congress website. Through these efforts, I emphasized the <b>ethical use of AI</b> while driving interdisciplinary engagement, ensuring that AI technologies were leveraged responsibly and inclusively within the institution.
+      </p>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <!-- Sargent College, Boston University -->
+    <div class="work-item">
+      <div class="company">Boston University - Sargent College</div>
+      <div class="role">IT Specialist</div>
+      <div class="year">January 2022 - May 2023</div>
+      <p class="description">
+        As an <b>IT Specialist</b> at Boston University, I provided technical support for simulated nurse labs and implemented IT solutions to enhance system performance. My role included troubleshooting network issues, maintaining hardware, and conducting user training sessions. This experience honed my problem-solving skills and ability to collaborate across multidisciplinary teams to ensure seamless technological operations.
+      </p>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <!-- Resident Assistant at Boston University -->
+    <div class="work-item">
+      <div class="company">Boston University</div>
+      <div class="role">Resident Assistant</div>
+      <div class="year">August 2021 - May 2023</div>
+      <p class="description">
+        As a <b>Resident Assistant</b>, I oversaw 93 residents and supported student well-being through regular check-ins, conflict resolution, and community-building events. Being on call over 30 times, I managed crises efficiently and ensured the safety of residents. This role developed my leadership, time management, and interpersonal skills.
+      </p>
+    </div>
+  </section>
+
+  <!-- JavaScript for Scroll Animation -->
+  <script>
+    const workItems = document.querySelectorAll('.work-item');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    workItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>

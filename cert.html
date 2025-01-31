@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications</title>
+
+    <!-- Font Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Embedded CSS -->
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: #000000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 0 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #00ffff;
+            font-weight: 500;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+            font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+        }
+
+        .navbar a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
+        }
+
+
+        /* Back Arrow Button */
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            font-size: 3rem; /* Make it larger */
+            color: white;
+            text-decoration: none;
+            z-index: 1100; /* Ensure it is always on top */
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00bfff; /* Hover color */
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+
+        .page-title  {
+            font-size: 8rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+            animation: glitch 1.5s infinite;
+            animation-delay: 0.2s;
+            font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+            position: relative;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            }
+            20% {
+                text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+            }
+            40% {
+                text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
+            }
+            60% {
+                text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
+            }
+            80% {
+                text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            }
+            100% {
+                text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+            }
+        }
+
+
+        /* Certifications Section */
+        .certifications-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 40px;
+
+        }
+
+        .certifications-grid {
+            display: flex; /* Change from grid to flex */
+            justify-content: center; /* Center horizontally */
+            flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+            gap: 60px; /* Reduce space between items */
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto; /* Center the grid */
+            padding: 20px 0;
+        }
+
+        /* Certification Card */
+
+        .certification-card {
+            background: transparent;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 30px 50px; /* Reduced padding */
+            border-radius: 8px; /* Slightly smaller border radius */
+            font-size: 1rem; /* Reduce font size */
+            width: 250px; /* Set a fixed width */
+            height: auto; /* Adjust height based on content */
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+            transition: all 0.4s ease-in-out;
+            text-align: center;
+        }
+
+        .certification-card:hover {
+            background: #000000;
+            color: #1A1A1A;
+            box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Cyberpunk Glitch Border Animation */
+        .certification-card::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border: 2px solid #ff00ff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 1;
+                filter: brightness(1.4);
+            }
+        }
+
+
+        .certification-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .certification-provider {
+            font-size: 1rem;
+            color: #9B9BA0;
+            margin-top: 5px;
+        }
+
+        .certification-date {
+            font-size: 0.9rem;
+            color: #ff00ff;
+            margin-top: 5px;
+        }
+
+        /* Lightbox Overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Down Arrow */
+       /* Centered Down Arrow */
+       .down-arrow {
+           font-size: 5rem; /* Increased font size */
+           color: #ffffff;
+           position: absolute;
+           bottom: 60px; /* Adjust positioning */
+           left: 49%;
+           animation: glitch 1.5s infinite;
+       }
+
+        .scroll-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff00ff;
+            text-align: center;
+            margin-bottom: 80px;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        @media (max-width: 1024px) {
+            .page-title {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            .navbar li {
+                margin: 0 10px;
+            }
+            .navbar a {
+                font-size: 1rem;
+            }
+            .back-button {
+                display: none;
+            }
+            .page-title {
+                font-size: 3.5rem;
+            }
+            .down-arrow {
+                left: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 3rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<!-- Back Button -->
+<a href="index.html" class="back-button">&larr;</a>
+
+<!-- Navbar -->
+<nav>
+    <ul class="navbar">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="cert.html">Certificates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Page Title -->
+<section class="hero">
+    <h1 class="page-title">Certifications</h1><br>
+
+</section>
+
+    <div class="down-arrow">⬇</div>   
+
+<!-- Certifications Section -->
+<div class="scroll-text"> Click them! ↓ </div>
+
+<div class="certifications-grid">
+    <!-- Certification 1 -->
+    <div class="certification-card" onclick="openLightbox('img/CornellCertML.png')">
+        <h3 class="certification-title">Machine Learning Foundations</h3>
+        <p class="certification-provider">Cornell University</p>
+        <p class="certification-date">Issued: August 2024</p>
+    </div>
+
+    <!-- Certification 3 -->
+    <div class="certification-card" onclick="openLightbox('img/CertFall.png')">
+        <h3 class="certification-title">Treasury Scholar: Fall</h3>
+        <p class="certification-provider">Department of the United States Treasury</p>
+        <p class="certification-date">Issued: December 2024</p>
+    </div>
+
+    <!-- Certification 4 -->
+    <div class="certification-card" onclick="openLightbox('img/CertSum.png')">
+        <h3 class="certification-title">Treasury Scholar: Summer</h3>
+        <p class="certification-provider">Department of the United States Treasury</p>
+        <p class="certification-date">Issued: August 2024</p>
+    </div>
+    <!-- Certification 2 -->
+    <div class="certification-card" onclick="openLightbox('img/UR2PHDCert.png')">
+        <h3 class="certification-title">Research</h3>
+        <p class="certification-provider">UR2PHD Computing Association</p>
+        <p class="certification-date">Issued: January 2023</p>
+    </div>
+    <!-- Certification 5 -->
+    <div class="certification-card" onclick="openLightbox('img/cert1.png')">
+        <h3 class="certification-title">Video game Design</h3>
+        <p class="certification-provider">MIT</p>
+        <p class="certification-date">In Progress: August 2025</p>
+    </div>
+</div>
+
+
+<!-- Lightbox for Certificate Display -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Certification">
+</div>
+
+<!-- JavaScript for Lightbox -->
+<script>
+    function openLightbox(imageSrc) {
+        document.getElementById('lightbox-img').src = imageSrc;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+</script>
+

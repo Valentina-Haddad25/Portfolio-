@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+
+  <!-- Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Video Game Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Back Arrow Button */
+    .back-button {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 3rem;
+      color: white;
+      text-decoration: none;
+      z-index: 1100;
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #00ffff;
+    }
+
+
+    /* Navbar */
+    nav {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      margin: 0 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #00ffff;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+    }
+
+    .navbar a:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
+    }
+    /* About Section */
+    .about {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 0 5px;
+    }
+    .about h1  {
+      font-size: 6rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0;
+      animation: floatUp .5s ease-out forwards, glitch 1.5s infinite;
+      animation-delay: 0.5s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+      position: relative;
+      padding-bottom:20px;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      20% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+      40% {
+        text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
+      }
+      60% {
+        text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
+      }
+      80% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      100% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+    }
+
+
+    .about p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      opacity: 0;
+    }
+
+    .about p:nth-child(2) {
+      animation: floatIn 2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    .about p:nth-child(3) {
+      animation: floatIn 2.5s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    /* Down Arrow */
+    .down-arrow {
+      font-size: 4rem; /* Increased font size */
+      color: #ffffff;
+      position: absolute;
+      bottom: 60px; /* Adjust positioning */
+      left: 49%;
+      animation: glitch 1.5s infinite;
+    }
+
+    /* Tools Section */
+    .tools-section {
+      padding: 40px 10px;
+      text-align: center;
+    }
+
+    .tools-section h2 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tool-card {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .tool-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    .tool-content {
+      text-align: left;
+    }
+
+    .tool-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .tool-description {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #9B9BA0;
+    }
+
+    /* Video Projects Section */
+    .video-projects {
+      padding: 50px 20px;
+      background-color: black;
+      text-align: center;
+    }
+
+    .video-projects h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .video-container {
+      position: relative;
+      max-width: 80%;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 1024px) {
+      .about h1 {
+        font-size: 4rem;
+      }
+      .about p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      .navbar li {
+        margin: 0 10px;
+      }
+      .navbar a {
+        font-size: 1rem;
+      }
+      .back-button {
+        display: none;
+      }
+      .about h1 {
+        font-size: 3.5rem;
+      }
+      .about p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about h1 {
+        font-size: 3rem;
+      }
+      .about p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+      .hero {
+        padding: 10px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="index.html" class="back-button">&larr;</a>
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="cert.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about">
+    <h1>About Me</h1>
+    <p>
+      Hi, I'm Valentina Haddad—a creative technologist and storyteller passionate about bridging the gap between innovation and human connection. As a senior at Boston University double majoring in Computer Science and English, I thrive at the intersection of technology and the arts. From building AI-driven applications to creating video game narratives, I find inspiration in the blend of logic and creativity.
+    </p>
+    <p>
+      Outside of academics, I’m an avid video gamer, movie lover, and a collector of vintage books with a love for rare covers. I am fueled by the belief that every project—be it coding, writing, or exploring—is an opportunity to connect, create, and contribute. I look forward to the journeys ahead, weaving stories and solutions, one line of code or page at a time.
+    </p>
+    <div class="down-arrow">⬇</div>
+  </section>
+
+  <!-- Tools Section -->
+  <section class="tools-section">
+    <h2>Tools I use daily</h2>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="img/microsoft.png" alt="Microsoft Suite" class="tool-icon">
+        <div class="tool-content">
+          <h3 class="tool-title">Microsoft Suite</h3>
+          <p class="tool-description">From Excel and Outlook to Power Automate.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="img/figma.png" alt="Figma" class="tool-icon">
+        <div class="tool-content">
+          <h3 class="tool-title">Figma</h3>
+          <p class="tool-description">UX/UI design, wireframing, prototyping.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="img/python.png" alt="Python" class="tool-icon">
+        <div class="tool-content">
+          <h3 class="tool-title">Python</h3>
+          <p class="tool-description">Pandas, Numpy, PyTorch, and other advanced machine learning techniques.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="img/unity-logo-icon.png" alt="Unity" class="tool-icon">
+        <div class="tool-content">
+          <h3 class="tool-title">Unity</h3>
+          <p class="tool-description">3D modeling, game design, real-time rendering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Projects Section -->
+  <!--  <section class="video-projects">
+    <h2>Oh, and I also make videos for fun. Here's my latest one:</h2>
+    <div class="video-container">
+      <iframe src="https://ww" allowfullscreen></iframe>
+    </div>
+  </section>
+</body>
+</html>

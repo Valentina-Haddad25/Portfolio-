@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Asian CNN Classifier</title>
+  
+  <!-- Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    /* Navbar */
+    nav {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      margin: 0 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #00ffff;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+    }
+
+    .navbar a:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
+    }
+
+    /* Back Button */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 3rem;
+      color: white;
+      text-decoration: none;
+      z-index: 1100;
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #00ffff;
+    }
+
+    /* Header Section */
+    .header {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      background: url('img/fab1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 50px;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 70%, black 100%);
+      z-index: 1;
+    }
+
+    .title {
+      position: relative;
+      z-index: 2;
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    /* Main Content */
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 50px;
+      gap: 30px;
+    }
+
+    .info-box {
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .info-box span {
+      display: block;
+      color: #088a8a; /* Purple */
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .info-box p {
+      margin: 0 0 20px 0;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .report-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: transparent;
+      color: #00ffff;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+      transition: all 0.4s ease-in-out;
+
+    }
+
+    .report-button:hover {
+      background: #054040;
+    }
+
+    .text-box {
+      flex: 3;
+      line-height: 1.6;
+    }
+
+    .text-box h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .text-box p {
+      color: #ffffff; /* Light grey for captions */
+      font-size: 1rem;
+      margin: 0 0 20px 0;
+    }
+
+    .text-box .intro {
+      color: white; /* White text for the introduction */
+    }
+
+     .custom-link {
+       color: #00ffff; /* Neon pink */
+       text-decoration: none; /* Removes underline */
+       font-weight: bold;
+       transition: color 0.3s ease-in-out;
+      padding-top: 10px;
+     }
+
+    .custom-link:hover {
+      color: #00ffff; /* Cyan on hover */
+      text-shadow: 0 0 10px #e227ff;
+    }
+    @media (max-width: 1024px) {
+      .title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .back-button {
+        display: none;
+      }
+      .title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="projects.html" class="back-button">&larr;</a>
+
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="header">
+    <h1 class="title"> South Asian <br>CNN Classifier</h1>
+  </section>
+
+  <!-- Main Content Section -->
+  <section class="main-content">
+    <!-- Info Box -->
+    <div class="info-box">
+      <span>Client:</span>
+      <p>DS340</p>
+      <span>Role:</span>
+      <p>Co-Lead</p>
+      <span>Year:</span>
+      <p>2024</p>
+      <a href="img/FashionClassificationReport.pdf" class="report-button" target="_blank">See Full Report</a><br>
+    </div>
+
+
+
+    <!-- Text Box -->
+    <div class="text-box">
+      <p class="intro">
+        This project develops an efficient deep learning model to classify South Asian fashion items, such as sarees, kurtas, and lehengas, into distinct categories. By leveraging a custom convolutional neural network (CNN) and data balancing techniques, the model enhances classification accuracy while addressing dataset imbalances.
+      </p>
+
+      <h2>Objective:</h2>
+      <p>
+        To design a robust CNN architecture capable of accurately classifying diverse fashion items while ensuring fairness across categories through class-balancing methods. The goal is to create a scalable and adaptable model suitable for real-world applications in e-commerce and fashion analytics.
+      </p>
+
+      <h2>Approach:</h2>
+      <p>
+        The project utilized a dataset of over 100,000 fashion images, systematically split into training, validation, and test sets. To improve model generalization, <b>data augmentation techniques</b> such as resizing, rotation, and color jitter were applied. A <b>custom CNN architecture</b> was designed with multiple convolutional layers, ReLU activations, and dropout regularization to optimize feature extraction. Additionally, <b>class-balancing techniques</b> such as weighted cross-entropy loss and a <b>WeightedRandomSampler</b> ensured fair representation of all fashion categories. The model was trained using the <b>Adam optimizer</b>, achieving up to <b>85% classification accuracy</b>. Evaluation metrics, including confusion matrices and per-class accuracy, confirmed the model’s effectiveness in identifying nuanced variations across South Asian apparel.<br>
+       <br> <a href="https://github.com/Valentina-Haddad25/CustomClothingCNN" target="_blank" class="custom-link">Click here to see the code repo!</a><br>
+
+      </p>
+    </div>
+  </section>
+</body>
+</html>

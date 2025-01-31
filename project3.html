@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factors Affecting Childhood Allergies</title>
+  
+  <!-- Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 20px 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      margin: 0 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00bfff;
+    }
+
+    /* Back Button */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      z-index: 1100;
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #6466F1;
+    }
+
+    /* Header Section */
+    .header {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      background: url('img/dna2.png') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 50px;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 70%, black 100%);
+      z-index: 1;
+    }
+
+    .title {
+      position: relative;
+      z-index: 2;
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    /* Main Content */
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 50px;
+      gap: 30px;
+    }
+
+    .info-box {
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .info-box span {
+      display: block;
+      color: #6466F1; /* Purple */
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .info-box p {
+      margin: 0 0 20px 0;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .report-button {
+      display: inline-block;
+      background: #6466F1;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .report-button:hover {
+      background: #8091FF;
+    }
+
+    .text-box {
+      flex: 3;
+      line-height: 1.6;
+    }
+
+    .text-box h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .text-box p {
+      color: #9B9BA0; /* Light grey for captions */
+      font-size: 1rem;
+      margin: 0 0 20px 0;
+    }
+
+    .text-box .intro {
+      color: white; /* White text for the introduction */
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="projects.html" class="back-button">&larr;</a>
+
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="header">
+    <h1 class="title">Factors Affecting <br>Childhood Allergies</h1>
+  </section>
+
+  <!-- Main Content Section -->
+  <section class="main-content">
+    <!-- Info Box -->
+    <div class="info-box">
+      <span>Organization:</span>
+      <p>Boston University</p>
+      <span>Role:</span>
+      <p>Academic Researcher</p>
+      <span>Year:</span>
+      <p>2023</p>
+      <a href="Factors affecting the prevalence of childhood allergies.pdf" class="report-button" target="_blank">See Full Report</a>
+    </div>
+
+    <!-- Text Box -->
+    <div class="text-box">
+      <p class="intro">
+        The project explores how demographic and socioeconomic factors influence the prevalence of childhood allergies. Utilizing a dataset from a 2016 BMC Pediatrics study, the analysis delves into variables like healthcare access, race, ethnicity, and age to identify correlations with childhood food allergies. The research highlights disparities in allergy diagnosis rates and aims to provide actionable insights into improving healthcare accessibility and addressing inequities in allergy prevalence.
+      </p>
+      <h2>Objective:</h2>
+      <p>
+        To investigate the impact of demographic factors, healthcare access, and socioeconomic conditions on childhood allergy prevalence, focusing on disparities in diagnosis and exploring correlations between these variables and allergy development.
+      </p>
+      <h2>Approach:</h2>
+      <p>
+        The study employed logistic regression analysis and data visualization techniques to examine a dataset of over 333,000 children. Variables like race, ethnicity, Medicaid status, and allergy type were analyzed to identify patterns and test hypotheses about allergy prevalence. Statistical tests, including two-proportion z-tests and chi-square tests, were conducted to validate findings, with results offering insights into the influence of socioeconomic and demographic factors on allergy diagnosis and development.
+      </p>
+    </div>
+  </section>
+</body>
+</html>

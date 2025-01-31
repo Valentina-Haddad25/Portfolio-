@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+
+  <!-- Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Back Arrow Button */
+    .back-button {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 4rem; /* Larger arrow size */
+      color: white;
+      text-decoration: none;
+      z-index: 1100; /* Ensure it's always on top */
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #00ffff; /* Match link color */
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding-top: 20vh; /* Centers vertically */
+    }
+
+
+
+    .hero h1 {
+      font-size: 10rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0;
+      width: 100%;
+      text-transform: lowercase;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: glitch 2s infinite;
+      animation-delay: 0.5s;
+      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+      position: relative;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      20% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+      40% {
+        text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
+      }
+      60% {
+        text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
+      }
+      80% {
+        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+      }
+      100% {
+        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+      }
+    }
+
+
+    @keyframes floatIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start below the viewport */
+      }
+      50% {
+        opacity: 0.5;
+        transform: translateY(25px); /* Move halfway */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* End in the original position */
+      }
+    }
+
+    /* Subtitle Section */
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #9B9BA0; /* Subtle gray for the subtitle */
+    }
+
+    /* Contact Information Section */
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 60px; /* Spacing between contact items */
+      font-size: 1.4rem;
+    }
+
+    .contact-item {
+      text-align: center;
+    }
+
+    .contact-item span {
+      display: block;
+      color: #9B9BA0; /* Subtitle for email, phone, LinkedIn */
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-item a {
+      color: #00ffff; /* Blue color for links */
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .contact-item a:hover {
+      color: #00ffff; /* Lighter blue on hover */
+    }
+    /* Responsive Adjustments */
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+      .contact-info {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .contact-info {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="index.html" class="back-button">&larr;</a>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>let's connect</h1>
+    <p class="subtitle">
+      If you have a question, want to work together, or simply wish to say hello, reach out to me on any of these platforms!
+    </p>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section class="contact-info">
+    <div class="contact-item">
+      <span>Email address</span>
+      <a href="mailto:vhaddad@bu.edu">vhaddad@bu.edu</a>
+    </div>
+    <div class="contact-item">
+      <span>Phone number</span>
+      <a href="tel:5085620829">508-562-0829</a>
+    </div>
+    <div class="contact-item">
+      <span>LinkedIn</span>
+      <a href="https://www.linkedin.com/in/valentinahaddad/" target="_blank">Click here</a>
+    </div>
+  </section>
+</body>
+</html>
