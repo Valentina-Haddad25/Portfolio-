@@ -464,6 +464,9 @@
             .menu-toggle.open {
                 color: transparent;
             }
+            .down-arrow {
+                display: none;
+            }
 
         }
 
@@ -580,17 +583,6 @@
             }, 400);  // Match the CSS transition duration
         });
     });
-    document.addEventListener('DOMContentLoaded', () => {
-        const isIphone = /iPhone/i.test(navigator.userAgent); // Detect if the device is an iPhone
-        const downArrow = document.getElementById('down-arrow');
-
-        if (isIphone && downArrow) {
-            downArrow.remove(); // Remove the down arrow if the user is on an iPhone
-        }
-    });
-
-
-
 
     // Start Typewriter Effect
         document.addEventListener('DOMContentLoaded', () => {

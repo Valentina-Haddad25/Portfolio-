@@ -381,6 +381,9 @@
       .menu-toggle.open {
         color: transparent;
       }
+      .down-arrow {
+        display: none;
+      }
 
     }
 
@@ -505,16 +508,9 @@
         setTimeout(() => {
           navbar.style.pointerEvents = 'none';
         }, 400);  // Match the CSS transition duration
-      }); // ✅ Added missing closing parenthesis for the addEventListener
-    });   // ✅ Added missing closing parenthesis for the forEach
-    document.addEventListener('DOMContentLoaded', () => {
-      const isIphone = /iPhone/i.test(navigator.userAgent); // Detect if the device is an iPhone
-      const downArrow = document.getElementById('down-arrow');
-
-      if (isIphone && downArrow) {
-        downArrow.remove(); // Remove the down arrow if the user is on an iPhone
-      }
+      });
     });
+
 
 
   </script>
