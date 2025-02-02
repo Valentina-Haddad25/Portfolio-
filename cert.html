@@ -304,6 +304,30 @@
             color: #ff00ff;
             font-size: 2rem;
         }
+        .navbar a.alive {
+            color: #ff00ff;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            font-weight: bold;
+            position: relative;
+            animation: neonPulse 1.8s infinite ease-in-out;
+        }
+
+        @keyframes neonPulse {
+            0% {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #e227ff;
+                transform: scale(1.1);
+            }
+            100% {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+                transform: scale(1);
+            }
+        }
+
 
 
         @keyframes flicker {
@@ -459,10 +483,11 @@
 <nav>
     <div class="menu-toggle">☰</div>
     <ul class="navbar">
+        <li><a href="index.html" >Home</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="cert.html">Certificates</a></li>
+        <li><a href="cert.html" class="alive">Certificates</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
@@ -519,6 +544,9 @@
     <img id="lightbox-img" src="" alt="Certification">
 </div>
 
+
+
+</body>
 <!-- JavaScript for Lightbox -->
 <script>
     function openLightbox(imageSrc) {
@@ -552,9 +580,19 @@
             }, 400);  // Match the CSS transition duration
         });
     });
+    document.addEventListener('DOMContentLoaded', () => {
+        const isIphone = /iPhone/i.test(navigator.userAgent); // Detect if the device is an iPhone
+        const downArrow = document.getElementById('down-arrow');
+
+        if (isIphone && downArrow) {
+            downArrow.remove(); // Remove the down arrow if the user is on an iPhone
+        }
+    });
 
 
-        // Start Typewriter Effect
+
+
+    // Start Typewriter Effect
         document.addEventListener('DOMContentLoaded', () => {
         typeWriter();
     });

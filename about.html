@@ -250,6 +250,29 @@
       color: #ff00ff;
       font-size: 2rem;
     }
+    .navbar a.alive {
+      color: #ff00ff;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      font-weight: bold;
+      position: relative;
+      animation: neonPulse 1.8s infinite ease-in-out;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        transform: scale(1);
+      }
+      50% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #e227ff;
+        transform: scale(1.1);
+      }
+      100% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        transform: scale(1);
+      }
+    }
 
 
     @keyframes floatIn {
@@ -410,13 +433,14 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+
   <!-- Navbar -->
   <nav>
     <div class="menu-toggle">☰</div>
     <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html" class="alive">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="cert.html">Certificates</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -492,11 +516,5 @@
           navbar.style.pointerEvents = 'none';
         }, 400);  // Match the CSS transition duration
       });
-    });
-
-
-    // Start Typewriter Effect
-    document.addEventListener('DOMContentLoaded', () => {
-      typeWriter();
     });
   </script>
