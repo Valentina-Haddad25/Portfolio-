@@ -206,34 +206,51 @@
       color: #9B9BA0;
     }
 
-    /* Video Projects Section */
-    .video-projects {
-      padding: 50px 20px;
-      background-color: black;
-      text-align: center;
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: #00ffff;
+      cursor: pointer;
+      position: fixed;  /* Keep it fixed when scrolling */
+      top: 20px;
+      left: 20px;
+      z-index: 1200;    /* Ensure it's above the navbar */
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -300%;
+      width: 70%;
+      height: 100%;
+      background: black;
+      padding: 2px;
+      transition: left 0.3s ease-in-out;
     }
 
-    .video-projects h2 {
+    .mobile-nav.active {
+      left: 0;
+    }
+
+    .mobile-nav a {
+      margin: 15px 0;
+      color: #00ffff;
+      text-decoration: none;
       font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 20px;
-      color: white;
     }
 
-    .video-container {
-      position: relative;
-      max-width: 80%;
-      margin: 0 auto;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    .mobile-nav a:hover {
+      color: #ff00ff;
+    }
+    .menu-toggle.open::before {
+      content: '✕';
+      color: #ff00ff;
+      font-size: 2rem;
     }
 
-    .video-container iframe {
-      width: 100%;
-      height: 360px;
-      border: none;
-    }
 
     @keyframes floatIn {
       from {
@@ -256,24 +273,124 @@
 
     @media (max-width: 768px) {
       .navbar {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        padding: 20px;
+        gap: 20px;
+        z-index: 1100;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        /* Hide glow when closed */
+        box-shadow: none;
+        border-right: none;
+        opacity: 0; /* Fully transparent when hidden */
+        pointer-events: none;
       }
-      .navbar li {
-        margin: 0 10px;
+
+
+      .navbar.active {
+        transform: translateX(0);
+        /* Apply glow only when active */
+        box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
+        border-right: 2px solid #00ffff;
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+        visibility: visible;
       }
+
       .navbar a {
-        font-size: 1rem;
+        color: #00ffff;
+        font-size: 1.5rem;
+        padding: 15px 0;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        visibility: hidden;
+
       }
-      .back-button {
-        display: none;
+
+      .navbar a:hover {
+        color: #e227ff;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        transform: scale(1.1);
       }
-      .about h1 {
-        font-size: 3.5rem;
+
+      .navbar.active a {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        text-underline-color: #e227ff;
       }
-      .about p {
-        font-size: 1rem;
+
+      .navbar.active a:nth-child(1) {
+        transition-delay: 0.1s;
       }
+
+      .navbar.active a:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .navbar.active a:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .navbar.active a:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .navbar.active a:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+
+      .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        color: #00ffff;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1200;
+
+        padding: 10px; /* Increases tap area */
+        -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
+
+      }
+
+      .menu-toggle.open::before {
+        content: '✕';
+        color: #ff00ff;
+        font-size: 2rem;
+      }
+
+      .menu-toggle.open::before a:hover {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+
+      .menu-toggle:active {
+        text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+        transform: scale(0.95); /* Slight tap feedback effect */
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open:active::before {
+        text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open {
+        color: transparent;
+      }
+
     }
 
     @media (max-width: 480px) {
@@ -292,12 +409,11 @@
   </style>
 </head>
 <body>
-  <!-- Back Button -->
-  <a href="index.html" class="back-button">&larr;</a>
 
   <!-- Navbar -->
   <!-- Navbar -->
   <nav>
+    <div class="menu-toggle">☰</div>
     <ul class="navbar">
       <li><a href="work.html">Work</a></li>
       <li><a href="about.html">About</a></li>
@@ -354,12 +470,33 @@
     </div>
   </section>
 
-  <!-- Video Projects Section -->
-  <!--  <section class="video-projects">
-    <h2>Oh, and I also make videos for fun. Here's my latest one:</h2>
-    <div class="video-container">
-      <iframe src="https://ww" allowfullscreen></iframe>
-    </div>
-  </section>
-</body>
-</html>
+  <script>
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+
+    // Toggle navbar on hamburger click
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
+    });
+
+    // Smooth closing on link click
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuToggle.classList.remove('open');
+
+        // Optional: Re-enable pointer-events after animation finishes
+        setTimeout(() => {
+          navbar.style.pointerEvents = 'none';
+        }, 400);  // Match the CSS transition duration
+      });
+    });
+
+
+    // Start Typewriter Effect
+    document.addEventListener('DOMContentLoaded', () => {
+      typeWriter();
+    });
+  </script>

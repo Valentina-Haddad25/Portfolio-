@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  
+
   <!-- Font Link -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <!-- Video Game Font -->
@@ -50,7 +50,9 @@
       padding: 0;
       margin: 0;
     }
-
+    .navbar.active {
+      display: flex;
+    }
     .navbar li {
       margin: 0 30px;
     }
@@ -175,31 +177,28 @@
     .cta-btn:hover {
       background: #00ffff;
       color: #1A1A1A;
-      box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
+
       transform: scale(1.1);
+      box-shadow:
+              0 0 25px #00ffff,
+              0 0 45px #ff00ff,
+              0 0 50px #00ffff;  /* Stronger layered glow */
+      animation: intensePulse 0.8s infinite alternate;  /* Faster & continuous */
     }
 
-    /* Cyberpunk Animation */
-    .cta-btn::before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: calc(100% + 10px);
-      height: calc(100% + 10px);
-      border: 2px solid #ff00ff;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
-      animation: neon-flicker 1.5s infinite alternate;
-    }
-
-    @keyframes neon-flicker {
-      0% {
-        opacity: 0.6;
+    @keyframes intensePulse {
+      from {
+        transform: scale(1);
+        box-shadow:
+                0 0 20px #00ffff,
+                0 0 30px #ff00ff;
       }
-      100% {
-        opacity: 1;
-        filter: brightness(1.4);
+      to {
+        transform: scale(1.15); /* Bigger pulse */
+        box-shadow:
+                0 0 40px #00ffff,
+                0 0 60px #ff00ff,
+                0 0 65px #ff00ff;  /* Even more glow when expanded */
       }
     }
 
@@ -226,6 +225,76 @@
         filter: brightness(1.4);
       }
     }
+
+    /* Cyberpunk Animation */
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border: 2px solid #ff00ff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+      animation: neon-flicker 1.5s infinite alternate;
+    }
+
+    @keyframes neon-flicker {
+      0% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+        filter: brightness(1.4);
+      }
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: #00ffff;
+      cursor: pointer;
+      position: fixed;  /* Keep it fixed when scrolling */
+      top: 20px;
+      left: 20px;
+      z-index: 1200;    /* Ensure it's above the navbar */
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -300%;
+      width: 70%;
+      height: 100%;
+      background: black;
+      padding: 2px;
+      transition: left 0.3s ease-in-out;
+    }
+
+    .mobile-nav.active {
+      left: 0;
+    }
+
+    .mobile-nav a {
+      margin: 15px 0;
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .mobile-nav a:hover {
+      color: #ff00ff;
+    }
+    .menu-toggle.open::before {
+      content: '✕';
+      color: #ff00ff;
+      font-size: 2rem;
+    }
+
+
     /* Responsive Typography */
     @media (max-width: 1024px) {
       .main-title {
@@ -256,78 +325,215 @@
     }
     @media (max-width: 768px) {
       .navbar {
-        flex-wrap: nowrap;;
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        padding: 20px;
+        gap: 20px;
+        z-index: 1100;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        /* Hide glow when closed */
+        box-shadow: none;
+        border-right: none;
+        opacity: 0; /* Fully transparent when hidden */
+        pointer-events: none;
       }
 
-      .navbar li {
-        margin: 0 10px;
-        white-space: nowrap;
+
+      .navbar.active {
+        transform: translateX(0);
+        /* Apply glow only when active */
+        box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
+        border-right: 2px solid #00ffff;
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+        visibility: visible;
       }
+
       .navbar a {
-        font-size: 1rem;
+        color: #00ffff;
+        font-size: 1.5rem;
+        padding: 15px 0;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        visibility: hidden;
+
       }
+
+      .navbar a:hover {
+        color: #e227ff;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        transform: scale(1.1);
+      }
+
+      .navbar.active a {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        text-underline-color: #e227ff;
+      }
+
+      .navbar.active a:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+
+      .navbar.active a:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .navbar.active a:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .navbar.active a:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .navbar.active a:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+
+      .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        color: #00ffff;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1200;
+
+        padding: 10px; /* Increases tap area */
+        -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
+
+      }
+
+      .menu-toggle.open::before {
+        content: '✕';
+        color: #ff00ff;
+        font-size: 2rem;
+      }
+
+      .menu-toggle.open::before a:hover {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+
+      .menu-toggle:active {
+        text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+        transform: scale(0.95); /* Slight tap feedback effect */
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open:active::before {
+        text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open {
+        color: transparent;
+      }
+
     }
-    
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Navbar -->
-    <nav>
-      <ul class="navbar">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="cert.html">Certificates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+<div class="container">
+  <!-- Navbar -->
+  <!-- ✅ Keep only this one -->
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="cert.html">Certificates</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="bubble">
-        <span class="pulse"></span> Open for Work
-      </div>
-      <h1 class="main-title">Valentina Haddad</h1>
-      <p class="subtitle">I am a... <span class="dynamic-text"></span></p>
-      <a href="ValentinaHaddadResume2025.pdf" target="_blank" class="cta-btn">Download Resume</a>
-    </section>
-  </div>
 
-  <!-- Embedded JavaScript -->
-  <script>
-    // Dynamic Typewriter Effect
-    const roles = ['Video Game Designer', 'Data Scientist', 'AI Enthusiast', 'Programmer', 'Technical Writer', 'Arcane Fan!'];
-    let roleIndex = 0;
-    let charIndex = 0;
-    const dynamicTextElement = document.querySelector('.dynamic-text');
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="bubble">
+      <span class="pulse"></span> Open for Work
+    </div>
+    <h1 class="main-title">Valentina Haddad</h1>
+    <p class="subtitle">I am a... <span class="dynamic-text"></span></p>
+    <a href="ValentinaHaddadResume2025.pdf" target="_blank" class="cta-btn">Download Resume</a>
+  </section>
+</div>
 
-    function typeWriter() {
-      if (charIndex < roles[roleIndex].length) {
-        dynamicTextElement.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 150);
-      } else {
-        setTimeout(eraseText, 1000);
-      }
+
+<!-- Embedded JavaScript -->
+<script>
+  // Dynamic Typewriter Effect
+  const roles = ['Video Game Designer', 'Data Scientist', 'AI Enthusiast', 'Programmer', 'Technical Writer', 'Arcane Fan!'];
+  let roleIndex = 0;
+  let charIndex = 0;
+  const dynamicTextElement = document.querySelector('.dynamic-text');
+
+  function typeWriter() {
+    if (charIndex < roles[roleIndex].length) {
+      dynamicTextElement.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 150);
+    } else {
+      setTimeout(eraseText, 1000);
     }
+  }
 
-    function eraseText() {
-      if (charIndex > 0) {
-        dynamicTextElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseText, 100);
-      } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeWriter, 500);
-      }
+
+
+  function eraseText() {
+    if (charIndex > 0) {
+      dynamicTextElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(eraseText, 100);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeWriter, 500);
     }
+  }
 
-    // Start Typewriter Effect
-    document.addEventListener('DOMContentLoaded', () => {
-      typeWriter();
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbar = document.querySelector('.navbar');
+
+  // Toggle navbar on hamburger click
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
+  });
+
+  // Smooth closing on link click
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      menuToggle.classList.remove('open');
+
+      // Optional: Re-enable pointer-events after animation finishes
+      setTimeout(() => {
+        navbar.style.pointerEvents = 'none';
+      }, 400);  // Match the CSS transition duration
     });
-  </script>
+  });
+
+
+  // Start Typewriter Effect
+  document.addEventListener('DOMContentLoaded', () => {
+    typeWriter();
+  });
+</script>
 </body>
 </html>
