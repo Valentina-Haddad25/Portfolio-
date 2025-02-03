@@ -381,12 +381,8 @@
       .menu-toggle.open {
         color: transparent;
       }
-      .down-arrow {
-        display: none !important;
-      }
 
     }
-
 
     @media (max-width: 480px) {
       .selected-text, .work-text {
@@ -395,10 +391,16 @@
       .hero {
         padding: 10px;
       }
+
+    }
+    @media (max-width: 768px), (max-width: 480px) {
       .down-arrow {
         display: none !important;
+        visibility: hidden !important;  /* Extra safeguard */
+        opacity: 0 !important;          /* Hide even if visible */
       }
     }
+
 
   </style>
 </head>
