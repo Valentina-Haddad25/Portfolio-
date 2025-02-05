@@ -467,6 +467,32 @@
         opacity: 0 !important;          /* Hide even if visible */
       }
     }
+    @media (max-width: 768px) {
+      .projects-section {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust layout for tablets */
+        gap: 15px;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-section {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        padding: 10px;
+      }
+
+      .project-title {
+        font-size: 1rem;
+      }
+
+      .see-case {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+    }
 
 
   </style>
