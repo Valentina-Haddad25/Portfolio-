@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>South Asian CNN Classifier</title>
-  
+  <title>AI-Driven PCB Quality Assessment</title>
+
   <!-- Font Link -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
@@ -46,7 +46,6 @@
       font-weight: 500;
       font-size: 1.4rem;
       transition: color 0.3s;
-      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
     }
 
     .navbar a:hover {
@@ -117,7 +116,7 @@
 
     .info-box span {
       display: block;
-      color: #088a8a; /* Purple */
+      color: #088a8a;
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 5px;
@@ -132,20 +131,16 @@
     .report-button {
       display: inline-block;
       margin-top: 15px;
-      padding: 10px 20px;
+      padding: 10px 10px;
       background: transparent;
       color: #00ffff;
       border: 2px solid #00ffff;
       border-radius: 10px;
       font-size: 1rem;
-      font-family: 'Orbitron', sans-serif;
       cursor: pointer;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
       transition: all 0.4s ease-in-out;
-
     }
 
     .report-button:hover {
@@ -163,96 +158,107 @@
     }
 
     .text-box p {
-      color: #ffffff; /* Light grey for captions */
+      color: #ffffff;
       font-size: 1rem;
       margin: 0 0 20px 0;
     }
 
-    .text-box .intro {
-      color: white; /* White text for the introduction */
-    }
-
-     .custom-link {
-       color: #00ffff; /* Neon pink */
-       text-decoration: none; /* Removes underline */
-       font-weight: bold;
-       transition: color 0.3s ease-in-out;
+    .custom-link {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
       padding-top: 10px;
-     }
+    }
 
     .custom-link:hover {
-      color: #00ffff; /* Cyan on hover */
+      color: #00ffff;
       text-shadow: 0 0 10px #e227ff;
     }
-    @media (max-width: 1024px) {
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .info-box, .text-box {
+        max-width: 100%;
+        padding: 10px;
+      }
+
       .title {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .navbar li {
+        margin: 0 10px;
+      }
+
+      .report-button {
+        width: 100%;
+        text-align: center;
       }
     }
-
-
-
-    @media (max-width: 480px) {
-      .title {
-        font-size: 2rem;
-      }
-    }
-
   </style>
 </head>
 <body>
-  <!-- Back Button -->
-  <a href="projects.html" class="back-button">&larr;</a>
+<a href="projects.html" class="back-button">&larr;</a>
+<nav>
+  <ul class="navbar">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Certificates</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- Navbar -->
-  <nav>
-    <ul class="navbar">
-      <li><a href="index.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Certificates</a></li>
-      <li><a href="contact.html">Contact</a></li>
+<section class="header">
+  <h1 class="title">South Asian Clothing <br>CNN Classifier</h1>
+</section>
+
+<section class="main-content">
+  <div class="info-box">
+    <span>Client:</span>
+    <p>DS340</p>
+    <span>Role:</span>
+    <p>Co-Lead</p>
+    <span>Year:</span>
+    <p>2024</p>
+    <a href="img/FashionClassificationReport.pdf" class="report-button" target="_blank">See Full Report</a>
+  </div>
+  <div class="text-box">
+    <p>
+      This project focuses on the development of an advanced deep learning model designed to classify South Asian fashion items, such as sarees, kurtas, lehengas, and sherwanis. By leveraging a custom Convolutional Neural Network (CNN) architecture, the model effectively captures intricate design patterns, textures, and styles unique to South Asian attire. The project addresses common challenges in fashion classification, including dataset imbalance, feature extraction for diverse fabric patterns, and variations in traditional clothing silhouettes.
+    </p>
+
+    <h2>Objective:</h2>
+    <p>
+      The primary objective of this project was to design and implement a robust CNN architecture capable of accurately classifying diverse South Asian fashion items across multiple categories. The model aimed to improve classification performance by addressing class imbalance, optimizing feature extraction, and enhancing generalization. Additionally, the project sought to explore the scalability of the model for real-world applications in fashion e-commerce platforms, cultural heritage archiving, and automated tagging systems for large-scale fashion databases.
+    </p>
+
+    <h2>Approach:</h2>
+    <p>
+      The project utilized a comprehensive dataset of over 100,000 high-resolution fashion images, systematically divided into training (70%), validation (15%), and test (15%) sets to ensure robust performance evaluation. Key methodologies included:
+    </p>
+    <ul>
+      <li><b>Data Preprocessing:</b> Implementation of advanced data augmentation techniques such as image resizing, horizontal and vertical flipping, rotation, zooming, and color jittering to enhance model generalization and reduce overfitting.</li>
+      <li><b>Class Balancing:</b> Addressed class imbalance through the application of weighted cross-entropy loss functions and the integration of a <b>WeightedRandomSampler</b> to ensure fair representation of all fashion categories, particularly underrepresented classes.</li>
+      <li><b>Custom CNN Architecture:</b> Designed a multi-layered CNN with stacked convolutional layers, batch normalization, ReLU activations, max-pooling layers, and dropout regularization. This architecture was optimized to capture both low-level features (textures, patterns) and high-level semantic features (shapes, cultural motifs).</li>
+      <li><b>Training and Optimization:</b> Utilized the Adam optimizer for efficient gradient descent, with a learning rate scheduler to dynamically adjust learning rates during training. The model was trained using a categorical cross-entropy loss function, achieving an accuracy of up to 85% on the test set.</li>
+      <li><b>Evaluation Metrics:</b> Performance was assessed using confusion matrices, precision-recall curves, and F1-scores to analyze the model’s classification capability across different categories. The model demonstrated strong generalization, particularly in distinguishing visually similar garments.</li>
     </ul>
-  </nav>
 
-  <!-- Header Section -->
-  <section class="header">
-    <h1 class="title"> South Asian Clothing<br>CNN Classifier</h1>
-  </section>
+    <h2>Impact & Future Work:</h2>
+    <p>
+      This AI-driven solution demonstrates significant potential for real-world applications, including automated fashion tagging for e-commerce platforms, cultural fashion archiving, and personalized recommendation systems. Future work will focus on integrating <b>transfer learning</b> techniques using pre-trained models like ResNet and EfficientNet to further improve accuracy. Additionally, incorporating <b>attention mechanisms</b> and exploring <b>multi-label classification</b> approaches will enhance the model’s ability to recognize overlapping categories and complex garment attributes.
+    </p>
 
-  <!-- Main Content Section -->
-  <section class="main-content">
-    <!-- Info Box -->
-    <div class="info-box">
-      <span>Client:</span>
-      <p>DS340</p>
-      <span>Role:</span>
-      <p>Co-Lead</p>
-      <span>Year:</span>
-      <p>2024</p>
-      <a href="img/FashionClassificationReport.pdf" class="report-button" target="_blank">See Full Report</a><br>
-    </div>
-
-
-
-    <!-- Text Box -->
-    <div class="text-box">
-      <p class="intro">
-        This project develops an efficient deep learning model to classify South Asian fashion items, such as sarees, kurtas, and lehengas, into distinct categories. By leveraging a custom convolutional neural network (CNN) and data balancing techniques, the model enhances classification accuracy while addressing dataset imbalances.
-      </p>
-
-      <h2>Objective:</h2>
-      <p>
-        To design a robust CNN architecture capable of accurately classifying diverse fashion items while ensuring fairness across categories through class-balancing methods. The goal is to create a scalable and adaptable model suitable for real-world applications in e-commerce and fashion analytics.
-      </p>
-
-      <h2>Approach:</h2>
-      <p>
-        The project utilized a dataset of over 100,000 fashion images, systematically split into training, validation, and test sets. To improve model generalization, <b>data augmentation techniques</b> such as resizing, rotation, and color jitter were applied. A <b>custom CNN architecture</b> was designed with multiple convolutional layers, ReLU activations, and dropout regularization to optimize feature extraction. Additionally, <b>class-balancing techniques</b> such as weighted cross-entropy loss and a <b>WeightedRandomSampler</b> ensured fair representation of all fashion categories. The model was trained using the <b>Adam optimizer</b>, achieving up to <b>85% classification accuracy</b>. Evaluation metrics, including confusion matrices and per-class accuracy, confirmed the model’s effectiveness in identifying nuanced variations across South Asian apparel.<br>
-       <br> <a href="https://github.com/Valentina-Haddad25/CustomClothingCNN" target="_blank" class="custom-link">Click here to see the code repo!</a><br>
-
-      </p>
-    </div>
-  </section>
+    <a href="https://github.com/Valentina-Haddad25/CustomClothingCNN" target="_blank" class="custom-link">Click here to see the code repo!</a>
+  </div>
+</section>
 </body>
 </html>
