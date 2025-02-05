@@ -1,488 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
-
-  <!-- Font Link -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Embedded CSS -->
-  <style>
-    /* General Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background-color: black;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    /* Back Arrow Button */
-    .back-button {
-      position: fixed;
-      top: 15px;
-      left: 20px;
-      font-size: 3rem;
-      color: white;
-      text-decoration: none;
-      z-index: 1100;
-      transition: color 0.3s;
-    }
-
-    .back-button:hover {
-      color: #00ffff;
-    }
-
-    /* Navbar */
-    nav {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .navbar li {
-      margin: 0 30px;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: #00ffff;
-      font-weight: 500;
-      font-size: 1.4rem;
-      transition: color 0.3s;
-      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
-    }
-
-    .navbar a:hover {
-      color: #ff00ff;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .selected-text {
-      font-size: 8rem;
-      font-weight: 400;
-      color: grey;
-      margin: 0;
-      animation: floatUp 1.5s ease-out forwards;
-    }
-
-
-    .projects-text  {
-      font-size: 7rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin: 0;
-      animation: glitch 1.5s infinite;
-      animation-delay: 0.5s;
-      font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
-      position: relative;
-      padding-bottom:20px;
-    }
-
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
-      }
-      20% {
-        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
-      }
-      40% {
-        text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
-      }
-      60% {
-        text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
-      }
-      80% {
-        text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
-      }
-      100% {
-        text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
-      }
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    /* Projects Section */
-    .projects-section {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 50px;
-      padding: 50px 10%;
-    }
-
-    /* Cyberpunk Project Tiles */
-    .project-tile {
-      background: transparent;
-      color: #00ffff;
-      border: 2px solid #00ffff;
-      padding: 30px 20px;
-      border-radius: 8px;
-      font-size: 1rem;
-      width: 350px;
-      height: auto;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
-      transition: all 0.4s ease-in-out;
-    }
-
-    .project-tile:hover {
-      background: #000000;
-      box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
-      transform: scale(1.05);
-    }
-
-    /* Fix: Allow clicking inside the box */
-    .project-tile::before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: calc(100% + 10px);
-      height: calc(100% + 10px);
-      border: 2px solid #ff00ff;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
-      animation: neon-flicker 1.5s infinite alternate;
-      pointer-events: none; /* This fixes the button issue */
-    }
-
-    @keyframes neon-flicker {
-      0% { opacity: 0.6; }
-      100% { opacity: 1; filter: brightness(1.4); }
-    }
-
-    .project-tile img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .project-title {
-      margin-top: 15px;
-      font-size: 1.5rem;
-      color: #00ffff;
-      font-weight: 600;
-      text-shadow: 0 0 10px #00ffff;
-    }
-
-    .project-caption {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: grey;
-    }
-
-    .see-case {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: transparent;
-      color: #00ffff;
-      border: 2px solid #00ffff;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: 'Orbitron', sans-serif;
-      cursor: pointer;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
-      transition: all 0.4s ease-in-out;
-    }
-
-    .see-case:hover {
-      background: #00ffff;
-      color: #1A1A1A;
-      box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
-      transform: scale(1.1);
-    }
-    .down-arrow {
-      font-size: 4rem; /* Increased font size */
-      color: #ffffff;
-      position: absolute;
-      bottom: 60px; /* Adjust positioning */
-      left: 49%;
-      animation: glitch 1.5s infinite;
-    }
-
-    /* Hamburger Icon */
-    .menu-toggle {
-      display: none;
-      font-size: 2rem;
-      color: #00ffff;
-      cursor: pointer;
-      position: fixed;  /* Keep it fixed when scrolling */
-      top: 20px;
-      left: 20px;
-      z-index: 1200;    /* Ensure it's above the navbar */
-    }
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: -300%;
-      width: 70%;
-      height: 100%;
-      background: black;
-      padding: 2px;
-      transition: left 0.3s ease-in-out;
-    }
-
-    .mobile-nav.active {
-      left: 0;
-    }
-
-    .mobile-nav a {
-      margin: 15px 0;
-      color: #00ffff;
-      text-decoration: none;
-      font-size: 1.5rem;
-    }
-
-    .mobile-nav a:hover {
-      color: #ff00ff;
-    }
-    .menu-toggle.open::before {
-      content: '✕';
-      color: #ff00ff;
-      font-size: 2rem;
-    }
-    .navbar a.alive {
-      color: #ff00ff;
-      text-decoration: underline;
-      text-underline-offset: 5px;
-      font-weight: bold;
-      position: relative;
-      animation: neonPulse 1.8s infinite ease-in-out;
-    }
-
-    @keyframes neonPulse {
-      0% {
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
-        transform: scale(1);
-      }
-      50% {
-        text-shadow: 0 0 20px #ff00ff, 0 0 30px #e227ff;
-        transform: scale(1.1);
-      }
-      100% {
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
-        transform: scale(1);
-      }
-    }
-
-
-
-    @media (max-width: 1024px) {
-      .projects-text {
-        font-size: 4rem;
-      }
-      .selected-text {
-        font-size: 4rem;
-      }
-      .back-button {
-        display: none;
-      }
-    }
-
-
-
-
-    @media (max-width: 768px) {
-      .project-title {
-        font-size: 1.2rem; /* Smaller font for tablets */
-        line-height: 1.4;  /* Improve readability */
-      }
-    }
-
-    /* Adjust project title size for phones */
-    @media (max-width: 480px) {
-      .project-title {
-        font-size: 1rem;   /* Smaller font for phones */
-        line-height: 1.3;  /* Maintain clean spacing */
-      }
-      .projects-section {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 50px;
-      }
-    }
-
-
-
-
-
-    /* Ensure they stay stacked in a single column on smaller screens */
-    @media (max-width: 768px) {
-      .project-tile {
-        width: 100%; /* Full width */
-      }
-
-      .navbar {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 200px;
-        height: 100vh;
-        padding: 20px;
-        gap: 20px;
-        z-index: 1100;
-        transform: translateX(-100%);
-        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        /* Hide glow when closed */
-        box-shadow: none;
-        border-right: none;
-        opacity: 0; /* Fully transparent when hidden */
-        pointer-events: none;
-      }
-
-
-      .navbar.active {
-        transform: translateX(0);
-        /* Apply glow only when active */
-        box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
-        border-right: 2px solid #00ffff;
-        opacity: 1; /* Fully visible */
-        pointer-events: auto;
-        visibility: visible;
-      }
-
-      .navbar a {
-        color: #00ffff;
-        font-size: 1.5rem;
-        padding: 15px 0;
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        visibility: hidden;
-
-      }
-
-      .navbar a:hover {
-        color: #e227ff;
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-        transform: scale(1.1);
-      }
-
-      .navbar.active a {
-        opacity: 1;
-        transform: translateX(0);
-        visibility: visible;
-        text-underline-color: #e227ff;
-      }
-
-      .navbar.active a:nth-child(1) {
-        transition-delay: 0.1s;
-      }
-
-      .navbar.active a:nth-child(2) {
-        transition-delay: 0.2s;
-      }
-
-      .navbar.active a:nth-child(3) {
-        transition-delay: 0.3s;
-      }
-
-      .navbar.active a:nth-child(4) {
-        transition-delay: 0.4s;
-      }
-
-      .navbar.active a:nth-child(5) {
-        transition-delay: 0.5s;
-      }
-
-
-      .menu-toggle {
-        display: block;
-        font-size: 2rem;
-        color: #00ffff;
-        cursor: pointer;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1200;
-
-        padding: 10px; /* Increases tap area */
-        -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
-
-      }
-
-      .menu-toggle.open::before {
-        content: '✕';
-        color: #ff00ff;
-        font-size: 2rem;
-      }
-
-      .menu-toggle.open::before a:hover {
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-      }
-
-      .menu-toggle:active {
-        text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
-        transform: scale(0.95); /* Slight tap feedback effect */
-        transition: transform 0.1s ease;
-      }
-
-      .menu-toggle.open:active::before {
-        text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
-        transform: scale(0.95);
-        transition: transform 0.1s ease;
-      }
-
-      .menu-toggle.open {
-        color: transparent;
-      }
-
-    }
-    @media (max-width: 768px), (max-width: 480px) {
-      .down-arrow {
-        display: none !important;
-        visibility: hidden !important;  /* Extra safeguard */
-        opacity: 0 !important;          /* Hide even if visible */
-      }
-    }
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+    <!-- Font Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Embedded CSS -->
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Back Arrow Button */
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            font-size: 3rem;
+            color: white;
+            text-decoration: none;
+            z-index: 1100;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #00ffff;
+        }
+
+        /* Navbar */
+        nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 0 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #00ffff;
+            font-weight: 500;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+            font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+        }
+
+        .navbar a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px rgb(255, 0, 255);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .selected-text {
+            font-size: 8rem;
+            font-weight: 400;
+            color: grey;
+            margin: 0;
+            animation: floatUp 1.5s ease-out forwards;
+        }
+
+
+        .projects-text  {
+            font-size: 7rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+            animation: glitch 1.5s infinite;
+            animation-delay: 0.5s;
+            font-family: 'Orbitron', sans-serif; /* Sleek futuristic style */
+            position: relative;
+            padding-bottom:20px;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            }
+            20% {
+                text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+            }
+            40% {
+                text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff;
+            }
+            60% {
+                text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff;
+            }
+            80% {
+                text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            }
+            100% {
+                text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Projects Section */
+        .projects-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 50px 10%;
+        }
+
+        /* Cyberpunk Project Tiles */
+        .project-tile {
+            background: transparent;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 350px;
+            height: auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .project-tile:hover {
+            background: #000000;
+            box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Fix: Allow clicking inside the box */
+        .project-tile::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border: 2px solid #ff00ff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+            animation: neon-flicker 1.5s infinite alternate;
+            pointer-events: none; /* This fixes the button issue */
+        }
+
+        @keyframes neon-flicker {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; filter: brightness(1.4); }
+        }
+
+        .project-tile img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-title {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            color: #00ffff;
+            font-weight: 600;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .project-caption {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: grey;
+        }
+
+        .see-case {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: transparent;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .see-case:hover {
+            background: #00ffff;
+            color: #1A1A1A;
+            box-shadow: 0 0 30px #00ffff, 0 0 60px rgba(0, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+        .down-arrow {
+            font-size: 4rem; /* Increased font size */
+            color: #ffffff;
+            position: absolute;
+            bottom: 60px; /* Adjust positioning */
+            left: 49%;
+            animation: glitch 1.5s infinite;
+        }
+
+        /* Hamburger Icon */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: #00ffff;
+            cursor: pointer;
+            position: fixed;  /* Keep it fixed when scrolling */
+            top: 20px;
+            left: 20px;
+            z-index: 1200;    /* Ensure it's above the navbar */
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -300%;
+            width: 70%;
+            height: 100%;
+            background: black;
+            padding: 2px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav a {
+            margin: 15px 0;
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav a:hover {
+            color: #ff00ff;
+        }
+        .menu-toggle.open::before {
+            content: '✕';
+            color: #ff00ff;
+            font-size: 2rem;
+        }
+        .navbar a.alive {
+            color: #ff00ff;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            font-weight: bold;
+            position: relative;
+            animation: neonPulse 1.8s infinite ease-in-out;
+        }
+
+        @keyframes neonPulse {
+            0% {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #e227ff;
+                transform: scale(1.1);
+            }
+            100% {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+                transform: scale(1);
+            }
+        }
+
+
+
+        @media (max-width: 1024px) {
+            .projects-text {
+                font-size: 4rem;
+            }
+            .selected-text {
+                font-size: 4rem;
+            }
+            .back-button {
+                display: none;
+            }
+        }
+
+
+
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 1.4rem;  /* Reduced size for phones */
+                line-height: 1.3;
+                padding: 0 10px;    /* Add padding for better spacing */
+            }
+            .projects-section {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 50px;
+            }
+
+        }
+
+        /* Ensure they stay stacked in a single column on smaller screens */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 1.8rem;  /* Adjusted for tablets */
+                line-height: 1.4;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 200px;
+                height: 100vh;
+                padding: 20px;
+                gap: 20px;
+                z-index: 1100;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(10px);
+                /* Hide glow when closed */
+                box-shadow: none;
+                border-right: none;
+                opacity: 0; /* Fully transparent when hidden */
+                pointer-events: none;
+            }
+
+
+            .navbar.active {
+                transform: translateX(0);
+                /* Apply glow only when active */
+                box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
+                border-right: 2px solid #00ffff;
+                opacity: 1; /* Fully visible */
+                pointer-events: auto;
+                visibility: visible;
+            }
+
+            .navbar a {
+                color: #00ffff;
+                font-size: 1.5rem;
+                padding: 15px 0;
+                opacity: 0;
+                transform: translateX(-50px);
+                transition: transform 0.5s ease, opacity 0.5s ease;
+                visibility: hidden;
+
+            }
+
+            .navbar a:hover {
+                color: #e227ff;
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+                transform: scale(1.1);
+            }
+
+            .navbar.active a {
+                opacity: 1;
+                transform: translateX(0);
+                visibility: visible;
+                text-underline-color: #e227ff;
+            }
+
+            .navbar.active a:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .navbar.active a:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+
+            .navbar.active a:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+
+            .navbar.active a:nth-child(4) {
+                transition-delay: 0.4s;
+            }
+
+            .navbar.active a:nth-child(5) {
+                transition-delay: 0.5s;
+            }
+
+
+            .menu-toggle {
+                display: block;
+                font-size: 2rem;
+                color: #00ffff;
+                cursor: pointer;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1200;
+
+                padding: 10px; /* Increases tap area */
+                -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
+
+            }
+
+            .menu-toggle.open::before {
+                content: '✕';
+                color: #ff00ff;
+                font-size: 2rem;
+            }
+
+            .menu-toggle.open::before a:hover {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+            }
+
+            .menu-toggle:active {
+                text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+                transform: scale(0.95); /* Slight tap feedback effect */
+                transition: transform 0.1s ease;
+            }
+
+            .menu-toggle.open:active::before {
+                text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            .menu-toggle.open {
+                color: transparent;
+            }
+
+        }
+        @media (max-width: 768px), (max-width: 480px) {
+            .down-arrow {
+                display: none !important;
+                visibility: hidden !important;  /* Extra safeguard */
+                opacity: 0 !important;          /* Hide even if visible */
+            }
+        }
+
+
+    </style>
 </head>
 <body>
 <!-- Back Button -->
@@ -490,71 +480,71 @@
 
 <!-- Navbar -->
 <nav>
-  <div class="menu-toggle">☰</div>
-  <ul class="navbar">
-    <li><a href="index.html" >Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html" class="alive">Projects</a></li>
-    <li><a href="cert.html">Certificates</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+    <div class="menu-toggle">☰</div>
+    <ul class="navbar">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="alive">Projects</a></li>
+        <li><a href="cert.html">Certificates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 </nav>
 
 
 <!-- Hero Section -->
 <section class="hero">
-  <h1 class="selected-text">Selected</h1>
-  <h1 class="projects-text">Projects</h1>
+    <h1 class="selected-text">Selected</h1>
+    <h1 class="projects-text">Projects</h1>
 </section>
 
 <div class="down-arrow">⬇</div>
 <!-- Projects Section -->
 <section class="projects-section">
-  <div class="project-tile">
-    <img src="img/fab1.jpg" alt="Indian Clothing CNN">
-    <div class="project-title">CNN model that accurately identifies Indian clothing</div>
-    <div class="project-caption">Efficient deep learning model, CNN Architecture, & Class Balancing</div>
-    <a href="project1.html" class="see-case">See case</a>
-  </div><br>
-  <div class="project-tile">
-    <img src="img/trace_pcb.jpg" alt="Food Insecurity in NY Counties">
-    <div class="project-title"> AI-Driven <br>PCB Quality Assessment</div>
-    <div class="project-caption">Convolutional Neural Network, AI, Image Processing</div>
-    <a href="project2.html" class="see-case">See case</a>
-  </div>
+    <div class="project-tile">
+        <img src="img/fab1.jpg" alt="Indian Clothing CNN">
+        <div class="project-title">CNN model that accurately identifies Indian clothing</div>
+        <div class="project-caption">Efficient deep learning model, CNN Architecture, & Class Balancing</div>
+        <a href="project1.html" class="see-case">See case</a>
+    </div><br>
+    <div class="project-tile">
+        <img src="img/trace_pcb.jpg" alt="Food Insecurity in NY Counties">
+        <div class="project-title"> AI-Driven <br>PCB Quality Assessment</div>
+        <div class="project-caption">Convolutional Neural Network, AI, Image Processing</div>
+        <a href="project2.html" class="see-case">See case</a>
+    </div>
 </section>
 </body>
 </html>
 <script>
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navbar = document.querySelector('.navbar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
 
-  // Toggle navbar on hamburger click
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
-  });
-
-  // Smooth closing on link click
-  document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('active');
-      menuToggle.classList.remove('open');
-
-      // Optional: Re-enable pointer-events after animation finishes
-      setTimeout(() => {
-        navbar.style.pointerEvents = 'none';
-      }, 400);  // Match the CSS transition duration
+    // Toggle navbar on hamburger click
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
     });
-  });
+
+    // Smooth closing on link click
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuToggle.classList.remove('open');
+
+            // Optional: Re-enable pointer-events after animation finishes
+            setTimeout(() => {
+                navbar.style.pointerEvents = 'none';
+            }, 400);  // Match the CSS transition duration
+        });
+    });
 
 
 
 
-  // Start Typewriter Effect
-  document.addEventListener('DOMContentLoaded', () => {
-    typeWriter();
-  });
+    // Start Typewriter Effect
+    document.addEventListener('DOMContentLoaded', () => {
+        typeWriter();
+    });
 </script>
