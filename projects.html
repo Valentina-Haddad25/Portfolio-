@@ -321,16 +321,16 @@
 
 
 
-      @media (max-width: 480px) {
-        .project-title {
-          font-size: 3rem;
-        }
-        .projects-section {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          padding: 50px;
-        }
+    @media (max-width: 480px) {
+      .project-title {
+        font-size: 1.5rem;
+      }
+      .projects-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 50px;
+      }
 
     }
 
@@ -340,126 +340,126 @@
         width: 100%; /* Full width */
       }
 
-        .navbar {
-          display: flex;
-          flex-direction: column;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 200px;
-          height: 100vh;
-          padding: 20px;
-          gap: 20px;
-          z-index: 1100;
-          transform: translateX(-100%);
-          transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
-          background: rgba(0, 0, 0, 0.85);
-          backdrop-filter: blur(10px);
-          /* Hide glow when closed */
-          box-shadow: none;
-          border-right: none;
-          opacity: 0; /* Fully transparent when hidden */
-          pointer-events: none;
-        }
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        padding: 20px;
+        gap: 20px;
+        z-index: 1100;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease, border 0.3s ease;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        /* Hide glow when closed */
+        box-shadow: none;
+        border-right: none;
+        opacity: 0; /* Fully transparent when hidden */
+        pointer-events: none;
+      }
 
 
-        .navbar.active {
-          transform: translateX(0);
-          /* Apply glow only when active */
-          box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
-          border-right: 2px solid #00ffff;
-          opacity: 1; /* Fully visible */
-          pointer-events: auto;
-          visibility: visible;
-        }
+      .navbar.active {
+        transform: translateX(0);
+        /* Apply glow only when active */
+        box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.6);
+        border-right: 2px solid #00ffff;
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+        visibility: visible;
+      }
 
-        .navbar a {
-          color: #00ffff;
-          font-size: 1.5rem;
-          padding: 15px 0;
-          opacity: 0;
-          transform: translateX(-50px);
-          transition: transform 0.5s ease, opacity 0.5s ease;
-          visibility: hidden;
-
-        }
-
-        .navbar a:hover {
-          color: #e227ff;
-          text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-          transform: scale(1.1);
-        }
-
-        .navbar.active a {
-          opacity: 1;
-          transform: translateX(0);
-          visibility: visible;
-          text-underline-color: #e227ff;
-        }
-
-        .navbar.active a:nth-child(1) {
-          transition-delay: 0.1s;
-        }
-
-        .navbar.active a:nth-child(2) {
-          transition-delay: 0.2s;
-        }
-
-        .navbar.active a:nth-child(3) {
-          transition-delay: 0.3s;
-        }
-
-        .navbar.active a:nth-child(4) {
-          transition-delay: 0.4s;
-        }
-
-        .navbar.active a:nth-child(5) {
-          transition-delay: 0.5s;
-        }
-
-
-        .menu-toggle {
-          display: block;
-          font-size: 2rem;
-          color: #00ffff;
-          cursor: pointer;
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          z-index: 1200;
-
-          padding: 10px; /* Increases tap area */
-          -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
-
-        }
-
-        .menu-toggle.open::before {
-          content: '✕';
-          color: #ff00ff;
-          font-size: 2rem;
-        }
-
-        .menu-toggle.open::before a:hover {
-          text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-        }
-
-        .menu-toggle:active {
-          text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
-          transform: scale(0.95); /* Slight tap feedback effect */
-          transition: transform 0.1s ease;
-        }
-
-        .menu-toggle.open:active::before {
-          text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
-          transform: scale(0.95);
-          transition: transform 0.1s ease;
-        }
-
-        .menu-toggle.open {
-          color: transparent;
-        }
+      .navbar a {
+        color: #00ffff;
+        font-size: 1.5rem;
+        padding: 15px 0;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        visibility: hidden;
 
       }
+
+      .navbar a:hover {
+        color: #e227ff;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        transform: scale(1.1);
+      }
+
+      .navbar.active a {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        text-underline-color: #e227ff;
+      }
+
+      .navbar.active a:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+
+      .navbar.active a:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .navbar.active a:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .navbar.active a:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .navbar.active a:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+
+      .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        color: #00ffff;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1200;
+
+        padding: 10px; /* Increases tap area */
+        -webkit-tap-highlight-color: transparent; /* Removes grey tap highlight on mobile */
+
+      }
+
+      .menu-toggle.open::before {
+        content: '✕';
+        color: #ff00ff;
+        font-size: 2rem;
+      }
+
+      .menu-toggle.open::before a:hover {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+
+      .menu-toggle:active {
+        text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+        transform: scale(0.95); /* Slight tap feedback effect */
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open:active::before {
+        text-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+      }
+
+      .menu-toggle.open {
+        color: transparent;
+      }
+
+    }
     @media (max-width: 768px), (max-width: 480px) {
       .down-arrow {
         display: none !important;
@@ -467,69 +467,50 @@
         opacity: 0 !important;          /* Hide even if visible */
       }
     }
-    @media (max-width: 768px) {
-      .selected-text {
-        font-size: 10vw;  /* Slightly larger on small screens */
-      }
-
-      .projects-text {
-        font-size: 9vw;   /* Ensure it's large enough to be visible */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .selected-text,
-      .projects-text {
-        font-size: 12vw;  /* Bigger font for very small screens */
-      }
-    }
-
-
-
 
 
   </style>
 </head>
 <body>
-  <!-- Back Button -->
+<!-- Back Button -->
 
 
-  <!-- Navbar -->
-  <nav>
-    <div class="menu-toggle">☰</div>
-    <ul class="navbar">
-      <li><a href="index.html" >Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="alive">Projects</a></li>
-      <li><a href="cert.html">Certificates</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Navbar -->
+<nav>
+  <div class="menu-toggle">☰</div>
+  <ul class="navbar">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="alive">Projects</a></li>
+    <li><a href="cert.html">Certificates</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 
-    <!-- Hero Section -->
-  <section class="hero">
-    <h1 class="selected-text">Selected</h1>
-    <h1 class="projects-text">Projects</h1>
-  </section>
+<!-- Hero Section -->
+<section class="hero">
+  <h1 class="selected-text">Selected</h1>
+  <h1 class="projects-text">Projects</h1>
+</section>
 
-  <div class="down-arrow">⬇</div>
-  <!-- Projects Section -->
-  <section class="projects-section">
-    <div class="project-tile">
-      <img src="img/fab1.jpg" alt="Indian Clothing CNN">
-      <div class="project-title">CNN model that accurately identifies Indian clothing</div>
-      <div class="project-caption">Efficient deep learning model, CNN Architecture, & Class Balancing</div>
-      <a href="project1.html" class="see-case">See case</a>
-    </div><br>
-    <div class="project-tile">
-      <img src="img/trace_pcb.jpg" alt="Food Insecurity in NY Counties">
-      <div class="project-title"> AI-Driven <br>PCB Quality Assessment</div>
-      <div class="project-caption">Convolutional Neural Network, AI, Image Processing</div>
-      <a href="project2.html" class="see-case">See case</a>
-    </div>
-  </section>
+<div class="down-arrow">⬇</div>
+<!-- Projects Section -->
+<section class="projects-section">
+  <div class="project-tile">
+    <img src="img/fab1.jpg" alt="Indian Clothing CNN">
+    <div class="project-title">CNN model that accurately identifies Indian clothing</div>
+    <div class="project-caption">Efficient deep learning model, CNN Architecture, & Class Balancing</div>
+    <a href="project1.html" class="see-case">See case</a>
+  </div><br>
+  <div class="project-tile">
+    <img src="img/trace_pcb.jpg" alt="Food Insecurity in NY Counties">
+    <div class="project-title"> AI-Driven <br>PCB Quality Assessment</div>
+    <div class="project-caption">Convolutional Neural Network, AI, Image Processing</div>
+    <a href="project2.html" class="see-case">See case</a>
+  </div>
+</section>
 </body>
 </html>
 <script>
@@ -564,4 +545,3 @@
     typeWriter();
   });
 </script>
-
