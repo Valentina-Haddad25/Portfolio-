@@ -489,21 +489,42 @@
       .menu-toggle.open {
         color: transparent;
       }
-      .tool-grid {
-        grid-template-columns: 1fr; /* Single column layout for mobile */
-        padding: 0 15px;
+      .tool-card {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;     /* Center horizontally */
+        justify-content: center; /* Center vertically */
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;       /* Center text for uniformity */
       }
 
-      .tool-card {
-        padding: 12px;
-        text-align: center; /* Center content for smaller screens */
-        flex-direction: column; /* Stack icon above the text */
+      .tool-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
       }
 
       .tool-icon {
-        margin: 0 auto 15px auto;
-        width: 50px; /* Adjust icon size for smaller screens */
-        height: 50px;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 15px;  /* Consistent spacing below icons */
+      }
+
+      .tool-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        margin: 10px 0 5px 0; /* Even spacing around title */
+      }
+
+      .tool-description {
+        font-size: 1rem;
+        color: #9B9BA0;
+        margin: 0; /* Remove extra space */
       }
 
       .fun-facts h2 {
@@ -548,6 +569,43 @@
 
       .tool-description {
         font-size: 0.9rem;
+      }
+      .tool-card {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;     /* Center horizontally */
+        justify-content: center; /* Center vertically */
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;       /* Center text for uniformity */
+      }
+
+      .tool-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 15px;  /* Consistent spacing below icons */
+      }
+
+      .tool-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        margin: 10px 0 5px 0; /* Even spacing around title */
+      }
+
+      .tool-description {
+        font-size: 1rem;
+        color: #9B9BA0;
+        margin: 0; /* Remove extra space */
       }
 
     }
