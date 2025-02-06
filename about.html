@@ -187,6 +187,8 @@
       width: 60px;
       height: 60px;
       margin-right: 20px;
+      object-fit: contain;       /* Maintain image ratio */
+      margin-bottom: 15px;       /* Space between icon and title */
     }
 
     .tool-content {
@@ -273,6 +275,61 @@
         transform: scale(1);
       }
     }
+    /* Fun Facts Section */
+    .fun-facts {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(10, 10, 20, 0.9));
+      border-top: 2px solid #00ffff;
+      border-bottom: 2px solid #ff00ff;
+      box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff;
+      margin: 40px 0;
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    .fun-facts h2 {
+      font-size: 3rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      animation: glitch 1.5s infinite alternate;
+    }
+
+    .fun-facts p {
+      font-size: 1.3rem;
+      margin: 15px 0;
+      color: #e0e0e0;
+      transition: color 0.3s ease-in-out;
+      text-shadow: 0 0 5px #00ffff;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .fun-facts p:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .highlight {
+      color: #00ffff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+
+    /* Pulsating Glow Animation */
+    @keyframes pulseGlow {
+      from {
+        box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
+      }
+      to {
+        box-shadow: 0 0 30px #ff00ff, 0 0 45px #00ffff;
+      }
+    }
+
 
 
     @keyframes floatIn {
@@ -291,6 +348,25 @@
       }
       .about p {
         font-size: 1.1rem;
+      }
+      .tools-section h2,
+      .fun-facts h2 {
+        font-size: 2.5rem;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+        gap: 15px;
+        padding: 0 20px;
+      }
+
+      .tool-card {
+        padding: 15px;
+      }
+
+      .fun-facts p {
+        font-size: 1.1rem;
+        padding: 0 10px;
       }
     }
 
@@ -413,6 +489,32 @@
       .menu-toggle.open {
         color: transparent;
       }
+      .tool-grid {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+        padding: 0 15px;
+      }
+
+      .tool-card {
+        padding: 12px;
+        text-align: center; /* Center content for smaller screens */
+        flex-direction: column; /* Stack icon above the text */
+      }
+
+      .tool-icon {
+        margin: 0 auto 15px auto;
+        width: 50px; /* Adjust icon size for smaller screens */
+        height: 50px;
+      }
+
+      .fun-facts h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .fun-facts p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
 
     }
 
@@ -426,6 +528,26 @@
       }
       .hero {
         padding: 10px;
+      }
+      .fun-facts {
+        padding: 30px 10px;
+      }
+
+      .fun-facts p {
+        font-size: 0.9rem;
+        margin: 10px 0;
+      }
+
+      .tool-grid {
+        gap: 10px;
+      }
+
+      .tool-title {
+        font-size: 1.2rem;
+      }
+
+      .tool-description {
+        font-size: 0.9rem;
       }
 
     }
@@ -443,87 +565,110 @@
 <body>
 
 
-  <!-- Navbar -->
-  <nav>
-    <div class="menu-toggle">☰</div>
-    <ul class="navbar">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html" class="alive">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="cert.html">Certificates</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Navbar -->
+<nav>
+  <div class="menu-toggle">☰</div>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html" class="alive">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="cert.html">Certificates</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- About Section -->
-  <section class="about">
-    <h1>About Me</h1>
-    <p>
-      Hi, I'm Valentina Haddad—a creative technologist and storyteller passionate about bridging the gap between innovation and human connection. As a senior at Boston University double majoring in Computer Science and English, I thrive at the intersection of technology and the arts. From building AI-driven applications to creating video game narratives, I find inspiration in the blend of logic and creativity.
-    </p>
-    <p>
-      Outside of academics, I’m an avid video gamer, movie lover, and a collector of vintage books with a love for rare covers. I am fueled by the belief that every project—be it coding, writing, or exploring—is an opportunity to connect, create, and contribute. I look forward to the journeys ahead, weaving stories and solutions, one line of code or page at a time.
-    </p>
-    <div class="down-arrow">⬇</div>
-  </section>
+<!-- About Section -->
+<section class="about">
+  <h1>About Me</h1>
+  <p>
+    Hi, I'm Valentina Haddad—a creative technologist and storyteller passionate about bridging the gap between technology and communication. As a senior at Boston University double majoring in Computer Science and English, I thrive at the intersection of technology and the arts. From building AI-driven applications to creating video game narratives, I find inspiration in the blend of logic and creativity.
+  </p>
+  <p>
+    Outside of academics, I’m an avid video gamer, movie lover, and a collector of vintage books. I am currently re-watching Arcane (and might be forever)! I am fueled by the belief that every project—be it coding, writing, or exploring—is an opportunity to connect, create, and contribute.
+  </p>
+  <div class="down-arrow">⬇</div>
+</section>
 
-  <!-- Tools Section -->
-  <section class="tools-section">
-    <h2>Tools I use daily</h2>
-    <div class="tool-grid">
-      <div class="tool-card">
-        <img src="img/microsoft.png" alt="Microsoft Suite" class="tool-icon">
-        <div class="tool-content">
-          <h3 class="tool-title">Microsoft Suite</h3>
-          <p class="tool-description">From Excel and Outlook to Power Automate.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <img src="img/figma.png" alt="Figma" class="tool-icon">
-        <div class="tool-content">
-          <h3 class="tool-title">Figma</h3>
-          <p class="tool-description">UX/UI design, wireframing, prototyping.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <img src="img/python.png" alt="Python" class="tool-icon">
-        <div class="tool-content">
-          <h3 class="tool-title">Python</h3>
-          <p class="tool-description">Pandas, Numpy, PyTorch, and other advanced machine learning techniques.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <img src="img/unity-logo-icon.png" alt="Unity" class="tool-icon">
-        <div class="tool-content">
-          <h3 class="tool-title">Unity</h3>
-          <p class="tool-description">3D modeling, game design, real-time rendering.</p>
-        </div>
+<section class="fun-facts">
+  <h2>Fun Facts About Me</h2>
+  <p>🎮 <span class="highlight">Favorite Games:</span> league of legends, Red Dead Redemption 2, and The last of Us</p>
+  <p>📖 <span class="highlight">Favorite Book:</span> Crescent City by Sarah J. Mass </p>
+  <p>🎬 <span class="highlight">Currently Watching:</span> Arcane (again!)</p>
+  <p>🌏 <span class="highlight">I speak:</span> English, Arabic, and Spanish</p>
+</section>
+
+
+<!-- Tools Section -->
+<section class="tools-section">
+  <h2>Tools I use daily</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <img src="img/microsoft.png" alt="Microsoft Suite" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">Microsoft Suite</h3>
+        <p class="tool-description">From Excel and Outlook to Power Automate.</p>
       </div>
     </div>
-  </section>
+    <div class="tool-card">
+      <img src="img/figma.png" alt="Figma" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">Figma</h3>
+        <p class="tool-description">UX/UI design, wireframing, prototyping.</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <img src="img/vscode-logo.png" alt="VsCode Logo" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">VSCode</h3>
+        <p class="tool-description">Basically every coding language! </p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <img src="img/unity-logo-icon.png" alt="Unity" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">Unity</h3>
+        <p class="tool-description">3D modeling, game design, real-time rendering.</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <img src="img/Webstorm.png" alt="Webstorm" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">Webstorm</h3>
+        <p class="tool-description">Website Design, JavaScript, TypeScript, CSS, HTML, React, and so much more.</p>
+      </div>
+    </div>
+    <div class="tool-card">
+      <img src="img/GitHubA.png" alt="GitHub" class="tool-icon">
+      <div class="tool-content">
+        <h3 class="tool-title">GitHub</h3>
+        <p class="tool-description">Version control, collaboration, and project management for coding projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
+<script>
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navbar = document.querySelector('.navbar');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbar = document.querySelector('.navbar');
 
-    // Toggle navbar on hamburger click
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-      menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
+  // Toggle navbar on hamburger click
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    menuToggle.classList.toggle('open'); // Toggles the hamburger/X icon
+  });
+
+  // Smooth closing on link click
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      menuToggle.classList.remove('open');
+
+      // Optional: Re-enable pointer-events after animation finishes
+      setTimeout(() => {
+        navbar.style.pointerEvents = 'none';
+      }, 400);  // Match the CSS transition duration
     });
-
-    // Smooth closing on link click
-    document.querySelectorAll('.navbar a').forEach(link => {
-      link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuToggle.classList.remove('open');
-
-        // Optional: Re-enable pointer-events after animation finishes
-        setTimeout(() => {
-          navbar.style.pointerEvents = 'none';
-        }, 400);  // Match the CSS transition duration
-      });
-    });
-  </script>
+  });
+</script>
